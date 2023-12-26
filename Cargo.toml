@@ -13,6 +13,8 @@ path = "src/lib.rs"
 
 [dependencies]
 actix-web = "4"
+thiserror = "1"
+anyhow = "1"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 # We need the optional `derive` feature to use `serde`'s procedural macros:
 # `#[derive(Serialize)]` and `#[derive(Deserialize)]`.
