@@ -1,4 +1,5 @@
 use crate::helpers::spawn_app;
+use rand::thread_rng;
 use wiremock::matchers::{method, path};
 use wiremock::{Mock, ResponseTemplate};
 
