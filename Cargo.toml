@@ -12,6 +12,9 @@ edition = "2021"
 path = "src/lib.rs"
 
 [dependencies]
+actix-web-flash-messages = { version = "0.4", features = ["cookies"] }
+htmlescape = "0.3"
+urlencoding = "2"
 actix-web = "4"
 base64 = "0.21"
 argon2 = { version = "0.4", features = ["std"] }
@@ -36,6 +39,7 @@ serde-aux = "4"
 unicode-segmentation = "1.7.1"
 validator = "0.16"
 rand = { version = "0.8", features=["std_rng"] }
+actix-session = { version = "0.7", features = ["redis-rs-tls-session"] }
 
 # Using table-like toml syntax to avoid a super-long line!
 [dependencies.sqlx]
@@ -54,7 +58,7 @@ features = [
 version = "0.11"
 default-features = false
 # We need the `json` feature flag to serialize/deserialize JSON payloads
-features = ["json", "rustls-tls"]
+features = ["json", "rustls-tls", "cookies"]
 
 [dev-dependencies]
 claims = "0.7"
