@@ -27,7 +27,7 @@ tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 # unnecessary dependencies for projects that do not need it.
 serde = { version = "1", features = ["derive"]}
 config = "0.13"
-uuid = { version = "1", features = ["v4"] }
+uuid = { version = "1", features = ["v4", "serde"] }
 chrono = { version = "0.4.22", default-features = false, features = ["clock"] }
 tracing = { version = "0.1", features = ["log"] }
 tracing-subscriber = { version = "0.3", features = ["registry", "env-filter"] }
@@ -40,6 +40,7 @@ unicode-segmentation = "1.7.1"
 validator = "0.16"
 rand = { version = "0.8", features=["std_rng"] }
 actix-session = { version = "0.7", features = ["redis-rs-tls-session"] }
+serde_json = "1"
 
 # Using table-like toml syntax to avoid a super-long line!
 [dependencies.sqlx]
@@ -66,5 +67,4 @@ fake = "~2.3"
 quickcheck = "0.9.2"
 quickcheck_macros = "0.9.1"
 wiremock = "0.5"
-serde_json = "1"
 linkify = "0.9"
