@@ -12,6 +12,7 @@ edition = "2021"
 path = "src/lib.rs"
 
 [dependencies]
+actix-web-lab = "0.18"
 actix-web-flash-messages = { version = "0.4", features = ["cookies"] }
 htmlescape = "0.3"
 urlencoding = "2"
