@@ -12,7 +12,6 @@ async fn confirmations_without_token_are_rejected_with_a_400() {
     assert_eq!(response.status().as_u16(), 400);
 }
 
-use reqwest::Url;
 use wiremock::matchers::{method, path};
 use wiremock::{Mock, ResponseTemplate};
 #[tokio::test]
