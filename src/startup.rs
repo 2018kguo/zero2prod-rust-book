@@ -4,6 +4,7 @@ use crate::configuration::Settings;
 use crate::email_client::EmailClient;
 use crate::routes::home;
 use crate::routes::log_out;
+use crate::routes::publish_newsletter_form;
 use crate::routes::{
     admin_dashboard, confirm, health_check, login, login_form, publish_newsletter, subscribe,
 };
@@ -116,7 +117,6 @@ pub async fn run(
             .route("/login", web::get().to(login_form))
             .route("/login", web::post().to(login))
             .route("/health_check", web::get().to(health_check))
-            .route("/newsletters", web::post().to(publish_newsletter))
             .route("/subscriptions", web::post().to(subscribe))
             .route("/subscriptions/confirm", web::get().to(confirm))
             .service(
@@ -125,7 +125,9 @@ pub async fn run(
                     .route("/dashboard", web::get().to(admin_dashboard))
                     .route("/password", web::get().to(change_password_form))
                     .route("/password", web::post().to(change_password))
-                    .route("/logout", web::post().to(log_out)),
+                    .route("/logout", web::post().to(log_out))
+                    .route("/newsletters", web::get().to(publish_newsletter_form))
+                    .route("/newsletters", web::post().to(publish_newsletter)),
             )
             .app_data(db_pool.clone())
             .app_data(email_client.clone())
