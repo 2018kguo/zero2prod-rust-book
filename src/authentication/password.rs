@@ -26,10 +26,10 @@ async fn get_stored_credentials(
 ) -> Result<Option<(uuid::Uuid, Secret<String>)>, anyhow::Error> {
     let row = sqlx::query!(
         r#"
-SELECT user_id, password_hash
-FROM users
-WHERE username = $1
-"#,
+        SELECT user_id, password_hash
+        FROM users
+        WHERE username = $1
+        "#,
         username,
     )
     .fetch_optional(pool)
